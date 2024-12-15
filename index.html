@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coefficient of Discharge Calculator</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+            /* text-align: left; */
+        }
+
+        /* Title styling */
+        h1, h2 {
+            color: #333;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            /* text-align: left; */
+        }
+
+        /* Theory section styling */
+        .theory {
+            /* text-align: left; */
+            margin: 0 auto;
+            width: 80%;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            /* text-align: left; */
+        }
+
+        /* Formula container styling */
+        .formulas {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            /* text-align: left; */
+        }
+
+        /* Label and input styling */
+        label, input {
+            display: block;
+            margin: 10px 0;
+            /* text-align: left; */
+        }
+
+        /* Input field styling */
+        input[type="text"] {
+            padding: 8px;
+            width: calc(100% - 20px);
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Button styling */
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #005f99;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            /* text-align: left; */
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Centered image */
+        .center-image {
+            text-align: left;
+        }
+
+        .center-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Average discharge styling */
+        .average-discharge {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Discharge coefficient styling */
+        .discharge-coefficient {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <h1>Experiment 1: Determination the Coefficient of Discharge of Venturimeter</h1>
+
+    <div>
+        <h2>Manual</h2>
+        <p>The objective of this experiment is to find the coefficient of discharge of a venturimeter.</p>
+
+        <h2>Specifications</h2>
+        <ul>
+            <li>Pump: Centrifugal pump of 25mm * 25mm (0.5 HP motor)</li>
+            <li>Sump tank: MS sump tank to collect water (70 ltr)</li>
+            <li>Discharge measurement: Measurement tank with piezometer capacity 30 ltr</li>
+            <li>G.I pipe of internal dia 25 mm</li>
+            <li>Gun metal Isi Mark Control valve (for circulation of water) and regulation</li>
+            <li>Bypass line is used to regulate the discharge</li>
+            <li>Metallic orifice meter: The opening from inlet and throat are connected to U tubes</li>
+            <li>Mercury manometer to measure the head difference</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Theory</h2>
+        <p>
+            <h4>Venturimeter :</h4> 
+            It is a device for measuring the rate of the flow in a pipeline. Its theoretical analysis is based on (i) Bernoulli's equation (ii) Continuity equation.
+            <h4>Construction features :</h4>
+            It is composed of the following three features:
+            <ol>
+                <li>A converging entrance cone of angle about 20 degrees.</li>
+                <li>Throat: a cylindrical portion of short length.</li>
+                <li>Diffuser: a diverging cone of angle 5 to 7 degrees.</li>
+            </ol>
+            The accelerated flow is achieved in the converging cone, the highest velocity head being at the throat.
+            In the converging cone, pressure energy is converted into kinetic energy. At the throat, the streamlines are parallel to each other, whereas in the converging cone, the kinetic energy is converted into pressure energy and thus reduces the velocity and pressure to nearly its original value at the inlet. About 85% of the pressure drop between the inlet and the throat is covered in the diffuser. The fluid flowing through the diverging boundaries has a tendency to separate from the boundaries, resulting in energy dissipation due to the formation of eddies, etc. Energy dissipation is directly proportional to the angle of divergence. However, small angles of divergence require large lengths of diffusers. Cone angles of 5 to 7 degrees have been found to give good results, i.e., lower values of energy loss.
+            <ol>
+                <li>For a venturimeter, it ought to be preceded by a straight length of around 50 times the pipe diameter, but not less than 30 times the pipe diameter.</li>
+                <li>The ratio of the throat to the inlet diameter may range between 0.75 and 0.25, but the most commonly used ratio is 0.5.</li>
+            </ol>
+        </p>
+    </div>
+
+    <h2>Formulas Used</h2>
+    <div class="formulas">
+        <p><strong>Measurement Tank Calculations</strong></p>
+        <ul>
+            <li><strong>Difference in Height (h):</strong> \( h = h_2 - h_1 \)</li>
+            <li><strong>Actual Discharge (Q<sub>actual</sub>):</strong> \( Q_{actual} = \frac{A \cdot h}{t} \)</li>
+            <li><strong>Average Discharge:</strong> \( \text{Average } Q_{actual} = \frac{\sum Q_{actual}}{\text{number of readings}} \)</li>
+        </ul>
+
+        <p><strong>Manometer Difference Calculations</strong></p>
+        <ul>
+            <li><strong>Difference in Manometer Height (R):</strong> \( R = H_2 - H_1 \)</li>
+            <li><strong>Converted Head Difference (H):</strong> \( H = R \cdot \left( \frac{\rho_m}{\rho_f} - 1 \right) \)</li>
+            <li><strong>Theoretical Discharge (Q<sub>theoretical</sub>):</strong> \( Q_{theoretical} = A_1 \cdot A_2 \cdot \sqrt{\frac{2 \cdot g \cdot H}{A_1^2 - A_2^2}} \)</li>
+            <li><strong>Coefficient of Discharge (C<sub>d</sub>):</strong> \( C_d = \frac{Q_{actual}}{Q_{theoretical}} \)</li>
+        </ul>
+    </div>
+
+    <h2 class="center-image">Diagram</h2>
+    <div class="center-image">
+        <img src="experimental_setup.png" alt="Experimental Setup">
+    </div>
+
+    <h2>Experimental Setup</h2>
+    <div>
+        <p>
+            The experimental Setup consists of:
+            <ol>
+                <li>Water main connected to the end of the venturimeter.</li>
+                <li>Horizontal venturimeter with a mercury differential U-tube manometer connected between two pet-cocks at the mouth and throat by means of flexible tubes.</li>
+                <li>Mercury U-tube manometer with an air vent, which allows the water levels in the limbs to be brought to the desired part of the scale regardless of the pressure in the mains.</li>
+                <li>Outlet valve fitted at the end of the venturimeter for discharge regulation.</li>
+                <li>Discharge measuring tank fitted with a piezometer tube.</li>
+            </ol>
+        </p>
+    </div>
+
+    <h2>Procedure :</h2>
+    <div>
+        <ol>
+            <li>Open the air vessel valve & release the air on the manometric tube and weight the levelling of mercury, close the air vessel valve.</li>
+            <li>Switch on the power and start the motor.</li>
+            <li>Open the regulation valve and under steady-state conditions, note the readings in the limbs of the mercury differential manometer.</li>
+            <li>Note the initial level of water in the measuring tank. Collect the water in the measuring tank for a certain time and note the final level of water in the measuring tank. Calculate the actual discharge.</li>
+            <li>Calculate the theoretical discharge and coefficient of discharge (Q_actual / Q_theoretical).</li>
+            <li>Vary the flow rate through the system with the regulating valve and take different readings.</li>
+        </ol>
+    </div>
+
+    <h1>Observations</h1>
+
+    <h2>Measurement Tank Calculations</h2>
+    <div class="section" id="measurement-tank-section">
+        <label for="h1">Initial Level (h1) [cm]:</label>
+        <input type="text" id="h1" required>
+        <label for="h2">Final Level (h2) [cm]:</label>
+        <input type="text" id="h2" required>
+        <label for="time">Time (t) [s]:</label>
+        <input type="text" id="time" required>
+        <label for="area">Cross-sectional Area (A) [cm²]:</label>
+        <input type="text" id="area" required>
+
+        <button onclick="addMeasurementTankReading()">Add Reading</button>
+        <button onclick="calculateAverageDischarge()">Calculate Average Discharge</button>
+
+        <div id="measurement-results">
+            <h3>Measurement Tank Readings</h3>
+            <table id="measurement-tank-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">h1 (cm)</th>
+                        <th style="width: 30%;">h2 (cm)</th>
+                        <th style="width: 30%;" >Time (s)</th>
+                        <th style="width: 30%;">Area (cm²)</th>
+                        <th style="width: 30%;">Discharge (cm³/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+
+            <!-- Display Average Discharge -->
+            <div class="average-discharge" id="average-discharge">
+                <!-- Average discharge will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <h2>Manometer Difference Calculations</h2>
+    <div class="section" id="manometer-section">
+        <label for="H1">Initial Manometer Level (H1) [cm of Hg]:</label>
+        <input type="text" id="H1" required>
+        <label for="H2">Final Manometer Level (H2) [cm of Hg]:</label>
+        <input type="text" id="H2" required>
+        <label for="densityM">Density of Manometer Fluid (ρ<sub>m</sub>) [g/cm³]:</label>
+        <input type="text" id="densityM" required>
+        <label for="densityF">Density of Working Fluid (ρ<sub>f</sub>) [g/cm³]:</label>
+        <input type="text" id="densityF" required>
+        <label for="A1">Inlet Area (A1) [cm²]:</label>
+        <input type="text" id="A1" required>
+        <label for="A2">Throat Area (A2) [cm²]:</label>
+        <input type="text" id="A2" required>
+
+        <button onclick="addManometerReading()">Add Reading</button>
+        <button onclick="calculateManometer()">Calculate Discharge Coefficient</button>
+
+        <div id="manometer-results">
+            <h3>Manometer Difference Readings</h3>
+            <table id="manometer-table">
+                <thead>
+                    <tr>
+                        <th style="width: 70%;">H1 (cm Hg)</th>
+                        <th style="width: 70%;">H2 (cm Hg)</th>
+                        <th style="width: 70%;">Density of Manometer Fluid (ρ<sub>m</sub>)</th>
+                        <th style="width: 70%;">Density of Fluid (ρ<sub>f</sub>)</th>
+                        <th style="width: 70%;">Coefficient of Discharge (C<sub>d</sub>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+
+            <!-- Display Discharge Coefficient -->
+            <div class="discharge-coefficient" id="discharge-coefficient">
+                <!-- Discharge coefficient will be displayed here -->
+            </div>
+        </div>
+
+        <h2>Precautions :</h2>
+        <div>
+            <ol>
+                <li>Avoid parallax error while taking the reading.</li>
+                <li>Maintain constant discharge rate while taking each reading.</li>
+            </ol>
+        </div>
+
+    </div> 
+
+    <script>
+        // JavaScript to handle input collection and calculations
+
+        let tankReadings = [];
+        let manometerReadings = [];
+
+        function addMeasurementTankReading() {
+            const h1 = parseFloat(document.getElementById('h1').value);
+            const h2 = parseFloat(document.getElementById('h2').value);
+            const time = parseFloat(document.getElementById('time').value);
+            const area = parseFloat(document.getElementById('area').value);
+
+            if (isNaN(h1) || isNaN(h2) || isNaN(time) || isNaN(area) || time <= 0 || area <= 0) {
+                alert("Please enter valid values.");
+                return;
+            }
+
+            const h = h2 - h1;
+            const discharge = (area * h) / time;
+
+            // Add the reading to the table
+            const table = document.getElementById('measurement-tank-table').getElementsByTagName('tbody')[0];
+            const row = table.insertRow();
+            row.insertCell(0).textContent = h1;
+            row.insertCell(1).textContent = h2;
+            row.insertCell(2).textContent = time;
+            row.insertCell(3).textContent = area;
+            row.insertCell(4).textContent = discharge.toFixed(2);
+
+            // Store the reading for future calculations
+            tankReadings.push(discharge);
+        }
+
+        function calculateAverageDischarge() {
+            if (tankReadings.length === 0) {
+                alert("Please add at least one reading.");
+                return;
+            }
+
+            const totalDischarge = tankReadings.reduce((acc, val) => acc + val, 0);
+            const averageDischarge = totalDischarge / tankReadings.length;
+
+            document.getElementById('average-discharge').textContent = "Average Discharge: " + averageDischarge.toFixed(2) + " cm³/s";
+        }
+
+
+        function addManometerReading() {
+            const H1 = parseFloat(document.getElementById('H1').value);
+            const H2 = parseFloat(document.getElementById('H2').value);
+            const densityM = parseFloat(document.getElementById('densityM').value);
+            const densityF = parseFloat(document.getElementById('densityF').value);
+            const A1 = parseFloat(document.getElementById('A1').value);
+            const A2 = parseFloat(document.getElementById('A2').value);
+
+            if (isNaN(H1) || isNaN(H2) || isNaN(densityM) || isNaN(densityF) || isNaN(A1) || isNaN(A2) || densityM <= 0 || densityF <= 0 || A1 <= 0 || A2 <= 0) {
+                alert("Please enter valid values.");
+                return;
+            }
+
+            const R = H2 - H1;
+            const H = R * (densityM / densityF - 1);
+            const g = 980; // acceleration due to gravity in cm/s²
+            const Q_theoretical = A1 * A2 * Math.sqrt((2 * g * H) / (A1 * A1 - A2 * A2));
+
+            // Calculate the discharge coefficient (C_d)
+            const Q_actual = tankReadings.length > 0 ? tankReadings[tankReadings.length - 1] : 0; // Use last discharge reading
+            const C_d = Q_actual / Q_theoretical;
+
+            // Add the reading to the table
+            const table = document.getElementById('manometer-table').getElementsByTagName('tbody')[0];
+            const row = table.insertRow();
+            row.insertCell(0).textContent = H1;
+            row.insertCell(1).textContent = H2;
+            row.insertCell(2).textContent = densityM;
+            row.insertCell(3).textContent = densityF;
+            row.insertCell(4).textContent = C_d.toFixed(3);
+
+            // Store the reading for future calculations
+            manometerReadings.push(C_d);
+        }
+
+        function calculateManometer() {
+            if (manometerReadings.length === 0) {
+                alert("Please add at least one manometer reading.");
+                return;
+            }
+
+            const totalCd = manometerReadings.reduce((acc, val) => acc + val, 0);
+            const averageCd = totalCd / manometerReadings.length;
+
+            document.getElementById('discharge-coefficient').textContent = "Discharge Coefficient (C_d): " + averageCd.toFixed(3);
+        }
+        
+
+    </script>
+</body>
+
+</html>
